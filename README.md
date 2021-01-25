@@ -1,4 +1,9 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Yenti Verle (Akibroszz) Portfolio
+
+This is my portfolio created using [Next.js](https://nextjs.org/). I'm a huge advocate of Free and Open Source so I wanted to post this to my GitHub.
+Please excuse my messy code, I'm not a programmer and definitely not a web developer, it's also my first Next.js project.
+
+I hope somebody can use this code to get inspired to make their own website, again do keep in mind that this code is probably horribly optimised.
 
 ## Getting Started
 
@@ -11,14 +16,10 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+## Learn More About Next.js
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -27,8 +28,6 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Credits
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+I want to give a big shout-out to the creators of the [Nord theme](https://www.nordtheme.com/) and the creators of the [Dracula theme](https://draculatheme.com/), these are basically the only 2 themes I use anymore and the website is also designed using these.

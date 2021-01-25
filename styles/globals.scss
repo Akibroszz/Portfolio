@@ -1,0 +1,27 @@
+@import "node_modules/nord/src/sass/nord.scss";
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
+html,
+body 
+{
+  padding: 0;
+  margin: 0;
+  font-family: 'Rubik', sans-serif;
+  background-color: #f2f4f8;
+  color: #4c566a;
+}
+
+a 
+{
+  text-decoration: none;
+}
+
+* 
+{
+  box-sizing: border-box;
+}
+
+/*
+  https://draculatheme.com/contribute#color-palette
+  https://www.nordtheme.com/docs/colors-and-palettes
+*/
