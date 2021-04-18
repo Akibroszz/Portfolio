@@ -1,23 +1,12 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { GetStaticProps } from 'next';
+import Link from 'next/link'
+import Image from 'next/image'
+import { GetStaticProps } from 'next'
 
-import { getSortedPostsData } from '../lib/posts';
-import Layout from '../components/layout';
-import styles from '../styles/Home.module.scss';
+import { getSortedMarkdownData } from '../lib/markdown-parser'
+import Layout from '../components/layout'
+import styles from '../styles/Home.module.scss'
 
-export default function Home({ allPostsData }: 
-{ allPostsData:
-  {
-    date: string;
-    title: string;
-    description: string;
-    image: string;
-    tag1: string;
-    tag2: string;
-    id: string;
-  }[] 
-})
+export default function Home({ allProjectsData, allPostsData })
 {
   return (
     <Layout>
@@ -31,7 +20,7 @@ export default function Home({ allPostsData }:
           </div>
           
           <div className={ styles.hero }>
-            <Image src="/picture.jpg" alt="Picture of me" width={ 400 } height = { 500 }></Image>
+            <Image src='/static/images/picture.jpg' alt='Picture of me' width={400} height = {500}/>
           </div>
         </div>
         <div className={ styles.sheet }>
@@ -45,58 +34,57 @@ export default function Home({ allPostsData }:
           <div className={ styles.projects }>
             <h1 className={ styles.big }>Projects</h1>
             <ul className={ styles.collection_wrapper }>
-              <Link href="https://github.com/Akibroszz/16bit-VirtualMachine">
-                <a>
-                  <li className={ styles.card }>
-                    <div className={ styles.card }>
-                      <div className={ styles.image_container_wrapper }>
-                        <div className={ styles.image_container }>
-                          <Image src="/test.jpg" alt="16bit Virtual Machine Screenshot" width={ 50 } height={ 50 }></Image>
-                        </div>
-                        <ul className={ styles.image_tag_list }>
-                          <li className={ styles.image_tag }>C#</li>
-                          <li className={ styles.image_tag }>LLC</li>
-                        </ul>       
-                      </div>
-
-                    <div className={ styles.card_info }>
-                      <p className={ styles.card_title }>16bit Virtual Machine</p>
-                      <p className={ styles.card_description }>A dotnet core application I wrote to learn about low level computing, right now it can take basic, custom written, assembly code and process it.</p>
-                        <a>
-                        </a>
-                    </div>
-                  </div>
-                </li>
-              </a>
-              </Link>
+              { allProjectsData.slice(0, 3).map(({ slug, title, abstract, tags }) =>
+              (
+                <Link href={`/projects/${slug}`}>
+                    <a>
+                        <li className={ styles.card }>
+                            <div className={ styles.card }>
+                                <div className={ styles.image_container }>
+                                    <Image src={`/static/images/projects/${slug}/cover.jpg`} alt={title} width={50} height={50} className={styles.highlight_image}/>
+                                    <ul className={ styles.tag_list }>
+                                      { tags.forEach(tag =>
+                                      (
+                                        <li className={ styles.image_tag }>{ tag }</li>
+                                      )) }
+                                    </ul>
+                                </div>
+                                <div className={ styles.card_info }>
+                                    <p className={ styles.card_title }>{ title }</p>
+                                    <p className={ styles.card_description }>{ abstract }</p>
+                                </div>
+                            </div>
+                        </li>
+                    </a>
+                </Link>
+              ))}
             </ul>
           </div>
 
           <div className={ styles.articles }>
             <h1 className={ styles.big }>Articles</h1>
             <ul className={ styles.collection_wrapper }>
-              { allPostsData.slice(0, 3).map(({ id, date, title, description, image, tag1, tag2 }) => 
+              { allPostsData.slice(0, 3).map(({ slug, title, abstract, created, tags }) =>
               (
-                <Link href={`/posts/${id}`}>
+                <Link href={`/posts/${slug}`}>
                   <a>
                     <li className={ styles.card }>
                       <div className={ styles.card }>
-                        <div className={ styles.image_container_wrapper }>
-                          <div className={ styles.image_container }>
-                            <Image src={ `${image}` } alt={ title } width={ 50 } height={ 50 } className={ styles.highlight_image }></Image>
-                          </div>
-                          <ul className={ styles.image_tag_list }>
-                            <li className={ styles.image_tag }>{ tag1 }</li> 
-                            <li className={ styles.image_tag }>{ tag2 }</li> 
+                        <div className={ styles.image_container }>
+                          <Image src={`/static/images/posts/${slug}/cover.jpg`} alt={title} width={50} height={50} className={styles.highlight_image}/>
+                          <ul className={ styles.tag_list }>
+                            { tags.forEach(tag => (
+                              <li className={ styles.tag }>{ tag }</li>
+                            )) }
                           </ul>
-                          <div className={ styles.image_date }>
-                            { date }
-                          </div>
+                        </div>
+                        <div className={ styles.image_date }>
+                          { created }
                         </div>
 
-                      <div className={ styles.card_info }>
-                        <p className={ styles.card_title }>{ title }</p>
-                        <p className={ styles.card_description }>{ description }</p>
+                        <div className={ styles.card_info }>
+                          <p className={ styles.card_title }>{ title }</p>
+                          <p className={ styles.card_description }>{ abstract }</p>
                       </div>
                     </div>
                   </li>
@@ -111,13 +99,14 @@ export default function Home({ allPostsData }:
   );
 }
 
-export const getStaticProps: GetStaticProps = async () =>
-{
-  const allPostsData = getSortedPostsData();
+export async function getStaticProps() {
+  const allPostsData = getSortedMarkdownData('_posts')
+  const allProjectsData = getSortedMarkdownData('_projects')
+
   return {
-    props: 
-    {
-      allPostsData
+    props: {
+      allPostsData,
+      allProjectsData,
     }
-  };
+  }
 }

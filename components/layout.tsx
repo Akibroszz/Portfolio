@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import styles from '../styles/Home.module.scss';
+import React from "react";
 
 export default function Layout(
 {
@@ -18,7 +19,7 @@ export default function Layout(
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="The online portfolio of Yenti Verle (Akibroszz)"
+          content="The online portfolio of Yenti Verle"
         />
         <meta
           property="og:image"
@@ -37,19 +38,19 @@ export default function Layout(
         <ul className={ styles.header_container }>
           <ul className={ styles.header_left }>
             <li className={ styles.logo }>
-              <Link href="/test">
+              <Link href="/">
                 <a>
-                  <Image src="/yv-logo.png" alt="Yenti Verle Initials" width={ 45 } height={ 45 }></Image>
+                  <Image src="/static/images/yv-logo.png" alt="Yenti Verle Initials" width={45} height={45}/>
                 </a>
               </Link>
             </li>
 
-            <li className={ styles.divider }></li>
+            <li className={styles.divider}/>
 
             <li className={ styles.icon }>
               <Link href="https://github.com/Akibroszz">
                 <a>
-                  <Image src="/github-logo.png" alt="Github Logo" width={ 45 } height={ 45 }></Image>
+                  <Image src="/static/images/github-logo.png" alt="Github Logo" width={45} height={45}/>
                 </a>
               </Link>
             </li>
@@ -57,7 +58,7 @@ export default function Layout(
             <li className={ styles.icon }>
               <Link href="https://www.linkedin.com/in/yenti-verle-a135581b7/">
                 <a>
-                  <Image src="/linkedin-logo.png" alt="LinkedIn Logo" width={ 45 } height={ 45 }></Image>
+                  <Image src="/static/images/linkedin-logo.png" alt="LinkedIn Logo" width={45} height={45}/>
                 </a>
               </Link>
             </li>
@@ -65,31 +66,31 @@ export default function Layout(
           </ul>
           <ul className={ styles.header_right }>
             <li className={ styles.header_link }>
-              <Link href="index.js">
+              <Link href="/">
                 <a className={ styles.active }>Home</a>
               </Link>
             </li>
 
             <li className={ styles.header_link }>
-              <Link href="about">
+              <Link href="/about">
                 <a>About</a>
               </Link>
             </li>
 
             <li className={ styles.header_link }>
-              <Link href="projects">
+              <Link href="/projects">
                 <a>Projects</a>
               </Link>
             </li>
 
             <li className={ styles.header_link }>
-              <Link href="articles">
+              <Link href="/articles">
                 <a>Articles</a>
               </Link>
             </li>
 
             <li className={ styles.header_link }>
-              <Link href="contact">
+              <Link href="/contact">
                 <a>Contact</a>
               </Link>
             </li>

@@ -1,3 +1,10 @@
+/*
+  Using these amazing palettes.
+
+  https://draculatheme.com/contribute#color-palette
+  https://www.nordtheme.com/docs/colors-and-palettes
+*/
+
 @import "node_modules/nord/src/sass/nord.scss";
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 
@@ -21,7 +28,9 @@ a
   box-sizing: border-box;
 }
 
-/*
-  https://draculatheme.com/contribute#color-palette
-  https://www.nordtheme.com/docs/colors-and-palettes
-*/
+h1
+{
+  color: #434c5e;
+  font-size: 4rem;
+  font-weight: bold;
+}
