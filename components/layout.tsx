@@ -48,7 +48,7 @@ export default function Layout(
             <li className={styles.divider}/>
 
             <li className={ styles.icon }>
-              <Link href="https://github.com/Akibroszz">
+              <Link href="https://github.com/yentiverle">
                 <a>
                   <Image src="/static/images/github-logo.png" alt="Github Logo" width={45} height={45}/>
                 </a>
@@ -56,7 +56,7 @@ export default function Layout(
             </li>
 
             <li className={ styles.icon }>
-              <Link href="https://www.linkedin.com/in/yenti-verle-a135581b7/">
+              <Link href="https://www.linkedin.com/in/yenti-verle">
                 <a>
                   <Image src="/static/images/linkedin-logo.png" alt="LinkedIn Logo" width={45} height={45}/>
                 </a>
@@ -72,43 +72,26 @@ export default function Layout(
             </li>
 
             <li className={ styles.header_link }>
-              <Link href="/about">
-                <a>About</a>
-              </Link>
-            </li>
-
-            <li className={ styles.header_link }>
               <Link href="/projects">
                 <a>Projects</a>
               </Link>
             </li>
 
             <li className={ styles.header_link }>
-              <Link href="/articles">
-                <a>Articles</a>
-              </Link>
-            </li>
-
-            <li className={ styles.header_link }>
-              <Link href="/contact">
-                <a>Contact</a>
+              <Link href="/posts">
+                <a>Posts</a>
               </Link>
             </li>
           </ul>
         </ul>
       </header>
 
-      <main>{ children }</main>
+      <main>
+        { children }
+      </main>
 
       <footer className={ styles.footer }>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={ styles.logo } />
-        </a>
+
       </footer>
     </div>
   )

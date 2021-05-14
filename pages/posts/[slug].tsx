@@ -1,11 +1,17 @@
 import Layout from '../../components/layout'
 import homeStyles from '../../styles/Home.module.scss'
 import postStyles from '../../styles/Post.module.scss'
+import hljs from 'highlight.js'
+//import javascript from 'highlight.js/lib/languages/javascript'
 
 import { getAllMarkdownIds, getMarkdownData } from '../../lib/markdown-parser'
-//{ postData.title }
+import {useEffect} from "react";
 
 export default function Post({ postData }) {
+  useEffect(() => {
+    hljs.highlightAll()
+  })
+
   return (
     <Layout>
       <div id={ postStyles.post } className={ homeStyles.sheet }>
@@ -15,7 +21,9 @@ export default function Post({ postData }) {
       </div>
     </Layout>
   )
+
 }
+
 
 export async function getStaticProps({ params }) {
   const postData = await getMarkdownData(params.slug, '_posts')
