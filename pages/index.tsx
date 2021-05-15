@@ -14,7 +14,7 @@ export default function Home({ allProjectsData, allPostsData })
           <div className={ styles.info }>
             <h1 className={ styles.name }>Yenti Verle</h1>
             <p className={ styles.description }>
-              I'm a final year computer security professional student at Howest Brugge in Belgium. lorem ipsum...
+              I'm a final year computer security professional student at Howest Brugge in Belgium.
             </p>
           </div>
           
