@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { GetStaticProps } from 'next'
 
 import { getSortedMarkdownData } from '../lib/markdown-parser'
 import Layout from '../components/layout'
@@ -34,27 +33,11 @@ export default function Home({ allProjectsData, allPostsData })
           <div className={ styles.projects }>
             <h1 className={ styles.big }>Projects</h1>
             <ul className={ styles.collection_wrapper }>
-              { allProjectsData.slice(0, 3).map(({ slug, title, abstract, tags }) =>
+              { allProjectsData.slice(0, 3).map(({ slug, title  }) =>
               (
                 <Link href={`/projects/${slug}`}>
                     <a>
-                        <li className={ styles.card }>
-                            <div className={ styles.card }>
-                                <div className={ styles.image_container }>
-                                    <Image src={`/static/images/projects/${slug}/cover.jpg`} alt={title} width={50} height={50} className={styles.highlight_image}/>
-                                    <ul className={ styles.tag_list }>
-                                      { tags.forEach(tag =>
-                                      (
-                                        <li className={ styles.image_tag }>{ tag }</li>
-                                      )) }
-                                    </ul>
-                                </div>
-                                <div className={ styles.card_info }>
-                                    <p className={ styles.card_title }>{ title }</p>
-                                    <p className={ styles.card_description }>{ abstract }</p>
-                                </div>
-                            </div>
-                        </li>
+                      <img src={`/static/images/projects/${slug}/cover.jpg`} alt={title} className={styles.highlight_image} />
                     </a>
                 </Link>
               ))}
@@ -64,31 +47,12 @@ export default function Home({ allProjectsData, allPostsData })
           <div className={ styles.articles }>
             <h1 className={ styles.big }>Articles</h1>
             <ul className={ styles.collection_wrapper }>
-              { allPostsData.slice(0, 3).map(({ slug, title, abstract, created, tags }) =>
+              { allPostsData.slice(0, 3).map(({ slug, title }) =>
               (
                 <Link href={`/posts/${slug}`}>
                   <a>
-                    <li className={ styles.card }>
-                      <div className={ styles.card }>
-                        <div className={ styles.image_container }>
-                          <Image src={`/static/images/posts/${slug}/cover.jpg`} alt={title} width={50} height={50} className={styles.highlight_image}/>
-                          <ul className={ styles.tag_list }>
-                            { tags.forEach(tag => (
-                              <li className={ styles.tag }>{ tag }</li>
-                            )) }
-                          </ul>
-                        </div>
-                        <div className={ styles.image_date }>
-                          { created }
-                        </div>
-
-                        <div className={ styles.card_info }>
-                          <p className={ styles.card_title }>{ title }</p>
-                          <p className={ styles.card_description }>{ abstract }</p>
-                      </div>
-                    </div>
-                  </li>
-                </a>
+                    <img src={`/static/images/posts/${slug}/cover.jpg`} alt={title} className={styles.highlight_image} />
+                  </a>
                 </Link>
               ))}
             </ul>
@@ -98,6 +62,9 @@ export default function Home({ allProjectsData, allPostsData })
     </Layout>
   );
 }
+
+//<Image src={`/static/images/posts/${slug}/cover.jpg`} alt={title} width={50} height={50} className={styles.card}/>
+//<Image src={`/static/images/projects/${slug}/cover.jpg`} alt={title} width={50} height={50} className={styles.card}/>
 
 export async function getStaticProps() {
   const allPostsData = getSortedMarkdownData('_posts')

@@ -16,20 +16,20 @@ This project is what I'm currently working on and spending most of my programmin
 YaRust8 is my first attempt at writing a real emulator/interpreter and is my first time writing a full Rust project.
 On top of this YaRust8 is using SDL2 which is a framework I have never worked with before.
 
-#Progress
+# Progress
 
-##Short term goals
+## Short term goals
 * Create a nice debug screen using ImGui.
 * Add an implementation for all opcodes.
 * Allow users to choose ROMs instead of requiring a code edit.
 * Force the interpreter to run at 60hz.
 * Code cleanup.
 
-##Long term goals
+## Long term goals
 * Sound support.
 * Super Chip support.
 
-##Stretch goals
+## Stretch goals
 * Fully modular system (since certain alternate versions use slightly different opcodes)
 * Figure out how to export this to WebAssembly.
 
